@@ -1,3 +1,4 @@
+import './config/ReactotronConfig';
 import React from 'react';
 
 function App() {
