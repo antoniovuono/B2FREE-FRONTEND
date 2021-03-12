@@ -1,13 +1,14 @@
 import './config/ReactotronConfig';
 import React from 'react';
+import { Router } from 'react-router-dom';
+import Routes from './routes';
+import history from './services/history';
 
 function App() {
     return (
-        <div className="App">
-            <header className="App-header">
-                <h1>Ola B2FREE!</h1>
-            </header>
-        </div>
+        <Router history={history}>
+            <Routes />
+        </Router>
     );
 }
 
