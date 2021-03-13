@@ -12,7 +12,7 @@ export default function SignIn() {
                 <input type="password" placeholder="Senha" />
 
                 <button type="submit">Acessar</button>
-                <Link to="/register">Criar uma conta !</Link>
+                <Link to="/register">Criar uma conta</Link>
             </form>
         </>
     );

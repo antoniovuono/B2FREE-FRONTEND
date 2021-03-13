@@ -14,7 +14,7 @@ export default function SignUp() {
                 <input type="password" placeholder="Senha"></input>
 
                 <button type="submit">Cadastrar</button>
-                <Link to="/">Já é cadastrado?</Link>
+                <Link to="/">Já é cadastrado ?</Link>
             </form>
         </>
     );
