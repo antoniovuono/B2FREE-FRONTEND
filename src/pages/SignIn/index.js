@@ -2,28 +2,40 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { signInRequest } from '../../store/modules/auth/actions';
 
 const schema = Yup.object().shape({
     email: Yup.string()
-        .email('Insira um email válido!')
-        .required('É necessário ter um email para logar...'),
-    password: Yup.string().required('É necessário ter uma senha para logar'),
+        .email('Insira um email válido')
+        .required('O Email é obrigatório'),
+    password: Yup.string().required('A Senha é obrigatória'),
 });
 
 export default function SignIn() {
-    function handleSubmit(data) {
-        console.tron.log(data);
+    const dispatch = useDispatch();
+    const loading = useSelector((state) => state.auth.loading);
+
+    function handleSubmit({ email, password }) {
+        dispatch(signInRequest(email, password));
     }
 
     return (
         <>
             <h1>B2FREE</h1>
             <Form schema={schema} onSubmit={handleSubmit}>
-                <Input name="email" type="email" placeholder="E-mail" />
-                <Input name="password" type="password" placeholder="Senha" />
+                <Input name="email" type="email" placeholder="Seu e-mail" />
+                <Input
+                    name="password"
+                    type="password"
+                    placeholder="Sua senha secreta"
+                />
 
-                <button type="submit">Acessar</button>
-                <Link to="/register">Criar uma conta</Link>
+                <button type="submit">
+                    {loading ? 'Carregando...' : 'Acessar'}
+                </button>
+                <Link to="/register">Criar conta gratuíta</Link>
             </Form>
         </>
     );
