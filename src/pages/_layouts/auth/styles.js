@@ -27,14 +27,14 @@ export const Content = styled.div`
         input {
             background: #ffffff;
             border: 0;
-            color: black;
+            color: #fe4a49;
             border-radius: 5px;
             height: 50px;
             padding: 15px;
             margin: 0 0 10px;
 
             &::placeholder {
-                color: #fe4a49;
+                color: #c6c7c4;
             }
         }
 

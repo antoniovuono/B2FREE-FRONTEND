@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
-
-import { signInRequest } from '../../store/modules/auth/actions';
+import { signUpRequest } from '../../store/modules/auth/actions';
 
 const schema = Yup.object().shape({
     name: Yup.string().required('O nome é obrigatório...'),
@@ -22,8 +21,8 @@ const schema = Yup.object().shape({
 export default function SignUp() {
     const dispatch = useDispatch();
 
-    function handleSubmit({ email, password }) {
-        dispatch(signInRequest(email, password));
+    function handleSubmit({ name, cpf, email, password }) {
+        dispatch(signUpRequest(name, cpf, email, password));
     }
 
     return (
