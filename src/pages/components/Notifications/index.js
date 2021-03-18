@@ -21,50 +21,27 @@ export default function Notifications() {
                 <MdNotifications color="#fe4a49" size={20} />
             </Badge>
 
-            <NotificationList visible={visible}>
-                <Scroll>
-                    <Notification unread>
-                        <p>Você possui um novo agendamento para amanhã</p>
-                        <time>há 2 dias</time>
-                        <button type="button">Marcar como lida</button>
-                    </Notification>
-                    <Notification>
-                        <p>Você possui um novo agendamento para amanhã</p>
-                        <time>há 2 dias</time>
-                        <button type="button">Marcar omo lida</button>
-                    </Notification>
-                    <Notification>
-                        <p>Você possui um novo agendamento para amanhã</p>
-                        <time>há 2 dias</time>
-                        <button type="button">Marcar omo lida</button>
-                    </Notification>
-                    <Notification>
-                        <p>Você possui um novo agendamento para amanhã</p>
-                        <time>há 2 dias</time>
-                        <button type="button">Marcar omo lida</button>
-                    </Notification>
-                    <Notification>
-                        <p>Você possui um novo agendamento para amanhã</p>
-                        <time>há 2 dias</time>
-                        <button type="button">Marcar omo lida</button>
-                    </Notification>
-                    <Notification>
-                        <p>Você possui um novo agendamento para amanhã</p>
-                        <time>há 2 dias</time>
-                        <button type="button">Marcar omo lida</button>
-                    </Notification>
-                    <Notification>
-                        <p>Você possui um novo agendamento para amanhã</p>
-                        <time>há 2 dias</time>
-                        <button type="button">Marcar omo lida</button>
-                    </Notification>
-                    <Notification>
-                        <p>Você possui um novo agendamento para amanhã</p>
-                        <time>há 2 dias</time>
-                        <button type="button">Marcar omo lida</button>
-                    </Notification>
-                </Scroll>
-            </NotificationList>
+            {visible && (
+                <NotificationList>
+                    <Scroll>
+                        <Notification unread>
+                            <p>Você possui uma nova reserva de cadeira !</p>
+                            <time>há 2 dias</time>
+                            <button type="button">Marcar como lida</button>
+                        </Notification>
+                        <Notification unread>
+                            <p>Você possui uma nova reserva de cadeira !</p>
+                            <time>há 2 dias</time>
+                            <button type="button">Marcar como lida</button>
+                        </Notification>
+                        <Notification unread>
+                            <p>Você possui uma nova reserva de cadeira !</p>
+                            <time>há 2 dias</time>
+                            <button type="button">Marcar como lida</button>
+                        </Notification>
+                    </Scroll>
+                </NotificationList>
+            )}
         </Container>
     );
 }
