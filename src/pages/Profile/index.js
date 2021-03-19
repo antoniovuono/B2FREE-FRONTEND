@@ -1,9 +1,18 @@
 import React from 'react';
+import { Form, Input } from '@rocketseat/unform';
+import { Container } from './styles';
 
 // import { Container } from './styles';
 
-function Profile() {
-    return <h1>Profile</h1>;
+export default function Profile() {
+    return (
+        <Container>
+            <Form>
+                <h1>Olá</h1>
+                <Input name="name" placeholder="Nome completo" />
+                <Input name="cpf" placeholder="Seu CPF" />
+                <hr />
+            </Form>
+        </Container>
+    );
 }
-
-export default Profile;
