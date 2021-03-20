@@ -27,7 +27,7 @@ export default function Header() {
                                 profile.avatar.url ||
                                 `https://avatars.dicebear.com/api/male/reidabarba.svg`
                             }
-                            alt="Thiago Marinho"
+                            alt="Rei da barba"
                         />
                     </Profile>
                 </aside>
