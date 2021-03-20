@@ -2,8 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Content, Profile } from './styles';
 import Notifications from '../../components/Notifications';
+import { useSelector } from 'react-redux';
 
 export default function Header() {
+    const profile = useSelector((state) => state.user.profile);
+
     return (
         <Container>
             <Content>
@@ -16,12 +19,15 @@ export default function Header() {
                     <Notifications />
                     <Profile>
                         <div>
-                            <strong>Rei da Barba</strong>
+                            <strong>{profile.name}</strong>
                             <Link to="/profile">Meu perfil</Link>
                         </div>
                         <img
-                            src="https://avatars.dicebear.com/api/male/reidabarba.svg"
-                            alt="O rei da barba"
+                            src={
+                                profile.avatar.url ||
+                                `https://avatars.dicebear.com/api/male/reidabarba.svg`
+                            }
+                            alt="Thiago Marinho"
                         />
                     </Profile>
                 </aside>
