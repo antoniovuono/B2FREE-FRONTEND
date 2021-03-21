@@ -1,8 +1,11 @@
+/* eslint-disable no-console */
 import React, { useEffect, useState } from 'react';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 import { Form } from '@rocketseat/unform';
 import { BsFillCircleFill } from 'react-icons/bs';
+import { toast } from 'react-toastify';
 import api from '../../services/api';
+import history from '../../services/history';
 import { Container, RentalSpaceList } from './styles';
 
 // import { Container } from './styles';
@@ -21,15 +24,15 @@ export default function Dashboard() {
     });
 
     async function handleSubmit(data) {
-        const establishment_id = localStorage.getItem('users');
-
-        await api.post('/rentalspace', data, {
-            headers: {
-                establishment_id,
-            },
-        });
-
-        history.pushState('/rentalspace');
+        try {
+            await api.post('/rentalspace', data);
+            toast.success('Espaço cadastrado com sucesso !');
+            history.pushState('/rentalspace');
+        } catch (err) {
+            toast.error(
+                'Não foi possível realizar o cadastro do espaço, verifique seus dados'
+            );
+        }
     }
 
     return (
