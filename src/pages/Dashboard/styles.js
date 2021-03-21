@@ -22,6 +22,35 @@ export const Container = styled.div`
             margin: 0 15px;
         }
     }
+
+    .form {
+        input {
+            background: #ffffff;
+            border: 0;
+            color: #4d4b4b;
+            border-radius: 5px;
+            height: 30px;
+            width: 220px;
+            padding: 20px;
+            margin-left: 15px;
+
+            &::placeholder {
+                color: #c6c7c4;
+            }
+        }
+
+        button {
+            background: blue;
+            padding: 10px;
+            width: 100px;
+            border-radius: 5px;
+            margin: 5px;
+            margin-left: 13px;
+            background: #f1e02c;
+            border: none;
+            color: #fff;
+        }
+    }
 `;
 
 export const RentalSpaceList = styled.div`

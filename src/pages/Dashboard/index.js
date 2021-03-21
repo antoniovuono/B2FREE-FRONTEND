@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
+import { Form } from '@rocketseat/unform';
 import { BsFillCircleFill } from 'react-icons/bs';
 import api from '../../services/api';
-import AddRentalSpace from '../../pages/components/addRentalSpace';
 import { Container, RentalSpaceList } from './styles';
 
 // import { Container } from './styles';
@@ -20,6 +20,18 @@ export default function Dashboard() {
         loadRentalSpaces();
     });
 
+    async function handleSubmit(data) {
+        const establishment_id = localStorage.getItem('users');
+
+        await api.post('/rentalspace', data, {
+            headers: {
+                establishment_id,
+            },
+        });
+
+        history.pushState('/rentalspace');
+    }
+
     return (
         <Container>
             <header>
@@ -30,8 +42,19 @@ export default function Dashboard() {
                 <button type="button">
                     <MdChevronRight size={36} color="FFF " />
                 </button>
-                <AddRentalSpace />
             </header>
+
+            <Form class="form" onSubmit={handleSubmit}>
+                <div>
+                    <input id="name" type="name" placeholder="Nome do espaço" />
+                    <input
+                        id="percentage"
+                        type="percentage"
+                        placeholder="Porcentagem de parceria"
+                    />
+                    <button type="submit">Adicionar</button>
+                </div>
+            </Form>
 
             <ul className="RentalSpaceList">
                 {rentalspace.map((rental_space) => (
