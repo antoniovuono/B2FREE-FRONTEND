@@ -49,7 +49,7 @@ export const Container = styled.div`
             font-size: 16px;
             transition: background 0.2s;
             &:hover {
-                background: ${darken(0.03, '#3b9eff')};
+                background: ${darken(0.03, '#155C66')};
             }
         }
 
@@ -77,7 +77,7 @@ export const Container = styled.div`
         font-size: 16px;
         transition: background 0.2s;
         &:hover {
-            background: ${darken(0.08, '#f64c75')};
+            background: ${darken(0.08, '#C0B10C')};
         }
     }
 `;
