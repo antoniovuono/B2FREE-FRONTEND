@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import * as Yup from 'yup';
 import { BsFillPlusCircleFill } from 'react-icons/bs';
-
+import api from '../../../services/api';
 import { Container, Badge, AddRentalSpace, Scroll, Form } from './styles';
 
 const schema = Yup.object().shape({
@@ -16,7 +16,9 @@ export default function AddRentalSpaces() {
         setVisible(!visible);
     }
 
-    function handleSubmit() {}
+    async function handleSubmit(rentalspaces) {
+        await api.post('rentalspace', rentalspaces);
+    }
 
     return (
         <Container>
@@ -29,8 +31,13 @@ export default function AddRentalSpaces() {
                     <Scroll>
                         <Form schema={schema} onSubmit={handleSubmit}>
                             <h2>Adicionar Cadeira</h2>
-                            <input type="string" placeholder="Nome do espaço" />
                             <input
+                                name="name"
+                                type="string"
+                                placeholder="Nome do espaço"
+                            />
+                            <input
+                                name="percentage"
                                 type="string"
                                 placeholder="Porcentagem de comissão"
                             />
