@@ -9,3 +9,25 @@
   <img src="https://reactjs.org/logo-og.png" width="200" />
 
 </p>
+
+<p> O projeto em questão foi desenvolvido utilizando o ReactJS, que é um biblioteca JavaScript de código aberto com foco em criar interfaces de usuário em páginas web.</p>
+
+<h3>Bibliotecas utilizadas: </h3>
+<ul>
+      <li> Eslint, prettier e editorconfig </li>
+      <li> @react-icons/all-files </li>
+      <li>@rocketseat/unform </li>
+      <li> Axios </li>
+      <li> date-fns </li>
+      <li> axios </li>
+      <li> immer </li>
+      <li> react-redux </li>
+      <li> prop-types </li>
+      <li> react-redux </li>
+      <li> redux-persist </li>
+      <li> react-toastify </li>
+      <li> react-router-dom </li>
+</ul>
+
+<h3> API: </h3>
+<link> https://github.com/antoniovuono/B2FREE-BACKEND </link>
