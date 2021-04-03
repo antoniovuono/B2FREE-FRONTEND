@@ -78,4 +78,12 @@ export const RentalSpaceList = styled.div`
         font-size: 12px;
         margin-top: 2px;
     }
+
+    .delete {
+        margin-left: 300px;
+
+        button {
+            border: none;
+        }
+    }
 `;

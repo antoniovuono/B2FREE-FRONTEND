@@ -1,8 +1,9 @@
 /* eslint-disable no-console */
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
-import { Form } from '@rocketseat/unform';
-import { BsFillCircleFill } from 'react-icons/bs';
+import { Form, Input } from '@rocketseat/unform';
+import { BsFillCircleFill, BsFillTrashFill } from 'react-icons/bs';
+
 import { toast } from 'react-toastify';
 import api from '../../services/api';
 import history from '../../services/history';
@@ -21,19 +22,33 @@ export default function Dashboard() {
         }
 
         loadRentalSpaces();
-    });
+    }, []);
 
     async function handleSubmit(data) {
         try {
-            await api.post('/rentalspace', data);
+            await api.post('rentalspace', data);
             toast.success('Espaço cadastrado com sucesso !');
-            history.pushState('/rentalspace');
+            window.location.reload(false);
         } catch (err) {
             toast.error(
                 'Não foi possível realizar o cadastro do espaço, verifique seus dados'
             );
         }
     }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const handleDelete = useCallback(async (data) => {
+        const gonnaDelete = window.confirm(
+            `Tem certeza que deseja deletar a ${data.name}?`
+        );
+
+        if (!gonnaDelete) return;
+
+        await api.delete(`rentalspace/${data.id}`);
+        toast.info(` ${data.name} foi excluída com sucesso!`);
+        history.push('/dashboard');
+        window.location.reload(false);
+    });
 
     return (
         <Container>
@@ -47,10 +62,20 @@ export default function Dashboard() {
                 </button>
             </header>
 
-            <Form class="form" onSubmit={handleSubmit}>
+            <Form
+                class="form"
+                initialData={rentalspace || undefined}
+                onSubmit={handleSubmit}
+            >
                 <div>
-                    <input id="name" type="name" placeholder="Nome do espaço" />
-                    <input
+                    <Input
+                        name="name"
+                        id="name"
+                        type="name"
+                        placeholder="Nome do espaço"
+                    />
+                    <Input
+                        name="percentage"
                         id="percentage"
                         type="percentage"
                         placeholder="Porcentagem de parceria"
@@ -74,6 +99,18 @@ export default function Dashboard() {
                             <div>
                                 <h3>{rental_space.name}</h3>
                                 <h4>{rental_space.percentage}</h4>
+                            </div>
+
+                            <div className="delete">
+                                <button
+                                    type="button"
+                                    onClick={() => handleDelete(rental_space)}
+                                >
+                                    <BsFillTrashFill
+                                        size={35}
+                                        color="#242424"
+                                    />
+                                </button>
                             </div>
                         </RentalSpaceList>
                     </li>
