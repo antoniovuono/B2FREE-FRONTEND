@@ -4,3 +4,8 @@
 <p> O aplicativo facilitará a busca por profissionais por parte dos estabelecimentos e ajudará os prestadores de serviços a encontrar espaços para realizar o seu trabalho de forma inovadora e intuitiva. O formato de parceria entre ambas as partes será prefixado no ato do aluguel. </p>
 
 <h2>FRONT-END:</h2>
+
+<p float="left">
+  <img src="https://reactjs.org/logo-og.png" width="200" />
+
+</p>
